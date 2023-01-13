@@ -1,10 +1,13 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+import axios from 'axios';
 
 export default function Home() {
   const onClickhandelder = () => {
-
-  }
+    axios.get('./api/hello').then((res) => {
+      alert(JSON.stringify(res.data));
+    });
+  };
   return (
     <div className={styles.container}>
       <Head>
@@ -50,7 +53,7 @@ export default function Home() {
             </p>
           </a>
 
-          <button>Get</button>
+          <button onClick={onClickhandelder}>Get</button>
         </div>
       </main>
 
